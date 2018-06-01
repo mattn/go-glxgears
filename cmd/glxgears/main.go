@@ -21,6 +21,7 @@ var (
 	view_rotx           = float32(20.0)
 	view_roty           = float32(30.0)
 	view_rotz           = float32(0.0)
+	view_zoom           = float32(1.0)
 	angle               = 0.0
 	gear1, gear2, gear3 uint32
 )
@@ -180,6 +181,7 @@ func draw() {
 	gl.Rotatef(view_rotx, 1.0, 0.0, 0.0)
 	gl.Rotatef(view_roty, 0.0, 1.0, 0.0)
 	gl.Rotatef(view_rotz, 0.0, 0.0, 1.0)
+	gl.Scalef(view_zoom, view_zoom, view_zoom)
 
 	gl.PushMatrix()
 	gl.Translatef(-3.0, -2.0, 0.0)
@@ -214,6 +216,10 @@ func keyCb(window *glfw.Window, k glfw.Key, s int, action glfw.Action, mods glfw
 		view_rotx += 5.0
 	case glfw.KeyDown:
 		view_rotx -= 5.0
+	case glfw.KeyPageUp:
+		view_zoom += 0.1
+	case glfw.KeyPageDown:
+		view_zoom -= 0.1
 	}
 }
 
