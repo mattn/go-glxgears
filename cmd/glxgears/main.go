@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	_ "image/png"
 	"log"
 	"math"
 	"runtime"
