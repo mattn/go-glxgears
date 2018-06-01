@@ -1,6 +1,6 @@
 # go-glxgears
 
-![glxgears](https://raw.githubusercontent.com/mattn/go-glxgars/master/screenshot.gif)
+![glxgears](https://raw.githubusercontent.com/mattn/go-glxgears/master/screenshot.gif)
 
 ## Installation
 
