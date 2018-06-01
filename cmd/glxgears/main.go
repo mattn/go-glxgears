@@ -202,6 +202,21 @@ func draw() {
 	gl.PopMatrix()
 }
 
+func keyCb(window *glfw.Window, k glfw.Key, s int, action glfw.Action, mods glfw.ModifierKey) {
+	switch glfw.Key(k) {
+	case glfw.KeyEscape:
+		window.SetShouldClose(true)
+	case glfw.KeyLeft:
+		view_roty += 5.0
+	case glfw.KeyRight:
+		view_roty -= 5.0
+	case glfw.KeyUp:
+		view_rotx += 5.0
+	case glfw.KeyDown:
+		view_rotx -= 5.0
+	}
+}
+
 func main() {
 	runtime.LockOSThread()
 
@@ -222,6 +237,8 @@ func main() {
 
 	window.MakeContextCurrent()
 	defer glfw.DetachCurrentContext()
+
+	window.SetKeyCallback(keyCb)
 
 	if err := gl.Init(); err != nil {
 		log.Fatal(err)
