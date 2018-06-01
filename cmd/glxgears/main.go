@@ -39,7 +39,7 @@ func gear(inner_radius, outer_radius, width float64, teeth int, tooth_depth floa
 	/* draw front face */
 	gl.Begin(gl.QUAD_STRIP)
 	for i := 0; i <= teeth; i++ {
-		angle := float64(i) * 2.0 * math.Pi / float64(teeth)
+		angle = float64(i) * 2.0 * math.Pi / float64(teeth)
 		gl.Vertex3f(float32(r0*math.Cos(angle)), float32(r0*math.Sin(angle)), float32(width*0.5))
 		gl.Vertex3f(float32(r1*math.Cos(angle)), float32(r1*math.Sin(angle)), float32(width*0.5))
 		if i < teeth {
@@ -53,7 +53,7 @@ func gear(inner_radius, outer_radius, width float64, teeth int, tooth_depth floa
 	gl.Begin(gl.QUADS)
 	da = 2.0 * math.Pi / float64(teeth) / 4.0
 	for i := 0; i < teeth; i++ {
-		angle := float64(i) * 2.0 * math.Pi / float64(teeth)
+		angle = float64(i) * 2.0 * math.Pi / float64(teeth)
 
 		gl.Vertex3f(float32(r1*math.Cos(angle)), float32(r1*math.Sin(angle)), float32(width*0.5))
 		gl.Vertex3f(float32(r2*math.Cos(angle+da)), float32(r2*math.Sin(angle+da)), float32(width*0.5))
@@ -67,7 +67,7 @@ func gear(inner_radius, outer_radius, width float64, teeth int, tooth_depth floa
 	/* draw back face */
 	gl.Begin(gl.QUAD_STRIP)
 	for i := 0; i <= teeth; i++ {
-		angle := float64(i) * 2.0 * math.Pi / float64(teeth)
+		angle = float64(i) * 2.0 * math.Pi / float64(teeth)
 
 		gl.Vertex3f(float32(r1*math.Cos(angle)), float32(r1*math.Sin(angle)), float32(-width*0.5))
 		gl.Vertex3f(float32(r0*math.Cos(angle)), float32(r0*math.Sin(angle)), float32(-width*0.5))
@@ -81,7 +81,7 @@ func gear(inner_radius, outer_radius, width float64, teeth int, tooth_depth floa
 	gl.Begin(gl.QUADS)
 	da = 2.0 * math.Pi / float64(teeth) / 4.0
 	for i := 0; i < teeth; i++ {
-		angle := float64(i) * 2.0 * math.Pi / float64(teeth)
+		angle = float64(i) * 2.0 * math.Pi / float64(teeth)
 
 		gl.Vertex3f(float32(r1*math.Cos(angle+3*da)), float32(r1*math.Sin(angle+3*da)), float32(-width*0.5))
 		gl.Vertex3f(float32(r2*math.Cos(angle+2*da)), float32(r2*math.Sin(angle+2*da)), float32(-width*0.5))
@@ -92,7 +92,7 @@ func gear(inner_radius, outer_radius, width float64, teeth int, tooth_depth floa
 
 	gl.Begin(gl.QUAD_STRIP)
 	for i := 0; i < teeth; i++ {
-		angle := float64(i) * 2.0 * math.Pi / float64(teeth)
+		angle = float64(i) * 2.0 * math.Pi / float64(teeth)
 
 		gl.Vertex3f(float32(r1*math.Cos(angle)), float32(r1*math.Sin(angle)), float32(width*0.5))
 		gl.Vertex3f(float32(r1*math.Cos(angle)), float32(r1*math.Sin(angle)), float32(-width*0.5))
@@ -124,7 +124,7 @@ func gear(inner_radius, outer_radius, width float64, teeth int, tooth_depth floa
 
 	gl.Begin(gl.QUAD_STRIP)
 	for i := 0; i <= teeth; i++ {
-		angle := float64(i) * 2.0 * math.Pi / float64(teeth)
+		angle = float64(i) * 2.0 * math.Pi / float64(teeth)
 		gl.Normal3f(float32(-math.Cos(angle)), float32(-math.Sin(angle)), 0.0)
 		gl.Vertex3f(float32(r0*math.Cos(angle)), float32(r0*math.Sin(angle)), float32(-width*0.5))
 		gl.Vertex3f(float32(r0*math.Cos(angle)), float32(r0*math.Sin(angle)), float32(width*0.5))
