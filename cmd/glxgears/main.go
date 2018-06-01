@@ -248,6 +248,8 @@ func main() {
 		log.Fatal(err)
 	}
 
+	glfw.SwapInterval(0)
+
 	if information {
 		fmt.Printf("GL_RENDERER   = %s\n", gl.GoStr(gl.GetString(gl.RENDERER)))
 		fmt.Printf("GL_VERSION    = %s\n", gl.GoStr(gl.GetString(gl.VERSION)))
