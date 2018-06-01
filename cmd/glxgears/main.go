@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"math"
@@ -217,6 +218,10 @@ func keyCb(window *glfw.Window, k glfw.Key, s int, action glfw.Action, mods glfw
 }
 
 func main() {
+	var information bool
+	flag.BoolVar(&information, "info", false, "print OpenGL information")
+	flag.Parse()
+
 	runtime.LockOSThread()
 
 	if err := glfw.Init(); err != nil {
@@ -241,6 +246,13 @@ func main() {
 
 	if err := gl.Init(); err != nil {
 		log.Fatal(err)
+	}
+
+	if information {
+		fmt.Printf("GL_RENDERER   = %s\n", gl.GoStr(gl.GetString(gl.RENDERER)))
+		fmt.Printf("GL_VERSION    = %s\n", gl.GoStr(gl.GetString(gl.VERSION)))
+		fmt.Printf("GL_VENDOR     = %s\n", gl.GoStr(gl.GetString(gl.VENDOR)))
+		fmt.Printf("GL_EXTENSIONS = %s\n", gl.GoStr(gl.GetString(gl.EXTENSIONS)))
 	}
 
 	reshape(300, 300)
