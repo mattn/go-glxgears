@@ -204,6 +204,10 @@ func draw() {
 	gl.PopMatrix()
 }
 
+func sizeCb(w *glfw.Window, width int, height int) {
+	reshape(width, height)
+}
+
 func keyCb(window *glfw.Window, k glfw.Key, s int, action glfw.Action, mods glfw.ModifierKey) {
 	switch glfw.Key(k) {
 	case glfw.KeyEscape:
@@ -235,7 +239,7 @@ func main() {
 	}
 	defer glfw.Terminate()
 
-	glfw.WindowHint(glfw.Resizable, glfw.False)
+	glfw.WindowHint(glfw.Resizable, glfw.True)
 	glfw.WindowHint(glfw.ContextVersionMajor, 2)
 	glfw.WindowHint(glfw.ContextVersionMinor, 1)
 
@@ -249,6 +253,7 @@ func main() {
 	defer glfw.DetachCurrentContext()
 
 	window.SetKeyCallback(keyCb)
+	window.SetSizeCallback(sizeCb)
 
 	if err := gl.Init(); err != nil {
 		log.Fatal(err)
