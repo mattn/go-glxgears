@@ -24,6 +24,7 @@ var (
 	view_zoom           = float32(1.0)
 	angle               = 0.0
 	gear1, gear2, gear3 uint32
+	animation           = false
 )
 
 func gear(inner_radius, outer_radius, width float64, teeth int, tooth_depth float64) {
@@ -224,6 +225,10 @@ func keyCb(window *glfw.Window, k glfw.Key, s int, action glfw.Action, mods glfw
 		view_zoom += 0.1
 	case glfw.KeyPageDown:
 		view_zoom -= 0.1
+	case glfw.KeySpace:
+		if action == glfw.Press {
+			animation = !animation
+		}
 	}
 }
 
@@ -274,6 +279,10 @@ func main() {
 	t0 := time.Now()
 	frames := 0
 	for !window.ShouldClose() {
+		if animation {
+			view_rotx += 0.01
+			view_roty += 0.04
+		}
 		angle += 2.0
 		draw()
 		window.SwapBuffers()
