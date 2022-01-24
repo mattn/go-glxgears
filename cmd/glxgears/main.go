@@ -276,6 +276,10 @@ func main() {
 	reshape(300, 300)
 	scene()
 
+	var fps float64
+	var s time.Duration
+	var t time.Time
+
 	t0 := time.Now()
 	frames := 0
 	for !window.ShouldClose() {
@@ -287,12 +291,12 @@ func main() {
 		draw()
 		window.SwapBuffers()
 
-		t := time.Now()
+		t = time.Now()
 		frames++
 
-		s := t.Sub(t0)
+		s = t.Sub(t0)
 		if s > 5*time.Second {
-			fps := float64(frames) / float64(s.Seconds())
+			fps = float64(frames) / float64(s.Seconds())
 			fmt.Printf("%d frames in %3.1f seconds = %6.3f FPS\n", frames, s.Seconds(), fps)
 			t0 = t
 			frames = 0
