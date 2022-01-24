@@ -5,7 +5,7 @@
 ## Installation
 
 ```
-$ go get github.com/mattn/go-glxgears/cmd/glxgears
+$ go install github.com/mattn/go-glxgears/cmd/glxgears@latest
 ```
 
 ## License
